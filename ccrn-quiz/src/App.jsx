@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import "./App.css";
 import questions from "./data/questions";
 
@@ -10,6 +10,17 @@ function App() {
   const [showExplanation, setShowExplanation] = useState(false);
   const [score, setScore] = useState(0);
   const [quizFinished, setQuizFinished] = useState(false);
+
+  const resultRef = useRef(null);
+
+  useEffect(() => {
+  if (selectedAnswer !== null) {
+    resultRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
+  }
+}, [selectedAnswer]);
 
   const startQuiz = (amount) => {
     let selectedQuestions;
@@ -203,7 +214,7 @@ function App() {
 
         {selectedAnswer !== null && (
           <>
-            <div className="result">
+            <div className="result" ref={resultRef}>
               {selectedAnswer === question.correctAnswer ? (
                 <p className="correct">
                   ✓ Correct!
