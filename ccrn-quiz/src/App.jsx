@@ -12,15 +12,27 @@ function App() {
   const [quizFinished, setQuizFinished] = useState(false);
 
   const resultRef = useRef(null);
+  const explanationRef = useRef(null);
 
   useEffect(() => {
-  if (selectedAnswer !== null) {
-    resultRef.current?.scrollIntoView({
-      behavior: "smooth",
-      block: "center",
-    });
-  }
-}, [selectedAnswer]);
+    if (selectedAnswer !== null) {
+      resultRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+  }, [selectedAnswer]);
+
+  useEffect(() => {
+    if (showExplanation) {
+      explanationRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+  }, [showExplanation]);
+
+
 
   const startQuiz = (amount) => {
     let selectedQuestions;
@@ -236,7 +248,7 @@ function App() {
                 </button>
 
                 {showExplanation && (
-                  <div className="explanation">
+                  <div className="explanation" ref={explanationRef}>
                     <h3>Explanation</h3>
                     <p>{question.explanation}</p>
                   </div>
