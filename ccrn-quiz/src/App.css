@@ -105,7 +105,7 @@ h2 {
 }
 
 .next-button:hover {
-  background: #146d79;
+  background: #4f78b8;
 }
 
 .score {
@@ -197,7 +197,7 @@ h2 {
 }
 
 .retake-button:hover {
-  background: #146d79;
+  background: #4f78b8;
 }
 
 .question-image-container {
@@ -242,7 +242,7 @@ h2 {
 }
 
 .quiz-options button:hover {
-  background: #146d79;
+  background: #4f78b8;
 }
 
 .home-button {
@@ -291,6 +291,7 @@ h2 {
 }
 
 .explanation-button {
+  width: 100%;
   margin-top: 15px;
   padding: 12px 20px;
   background-color: #7fa2d6;
