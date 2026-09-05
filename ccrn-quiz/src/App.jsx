@@ -7,6 +7,7 @@ function App() {
   const [quizQuestions, setQuizQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [showExplanation, setShowExplanation] = useState(false);
   const [score, setScore] = useState(0);
   const [quizFinished, setQuizFinished] = useState(false);
 
@@ -23,6 +24,7 @@ function App() {
     setQuizQuestions(selectedQuestions);
     setCurrentQuestion(0);
     setSelectedAnswer(null);
+    setShowExplanation(false);
     setScore(0);
     setQuizFinished(false);
     setQuizStarted(true);
@@ -46,6 +48,7 @@ function App() {
 
     setCurrentQuestion((current) => current + 1);
     setSelectedAnswer(null);
+    setShowExplanation(false);
   };
 
   const returnHome = () => {
@@ -211,6 +214,24 @@ function App() {
                 </p>
               )}
             </div>
+
+            {question.explanation && (
+              <>
+                <button
+                  className="explanation-button"
+                  onClick={() => setShowExplanation((current) => !current)}
+                >
+                  {showExplanation ? "Hide Explanation" : "View Explanation"}
+                </button>
+
+                {showExplanation && (
+                  <div className="explanation">
+                    <h3>Explanation</h3>
+                    <p>{question.explanation}</p>
+                  </div>
+                )}
+              </>
+            )}
 
             <button
               className="next-button"
