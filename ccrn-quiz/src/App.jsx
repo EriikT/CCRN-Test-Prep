@@ -162,7 +162,7 @@ function App() {
   return (
     <div className="app">
       <div className="quiz-container">
-        <h1>CCRN Practice</h1>
+        <h1 onClick={returnHome} className="home-title">CCRN Practice</h1>
 
         <div className="progress">
           Question {currentQuestion + 1} of {quizQuestions.length}
