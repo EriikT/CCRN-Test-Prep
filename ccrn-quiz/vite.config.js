@@ -8,7 +8,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['ecg/spheal.png'],
+      includeAssets: ['ecg/*.png'],
       manifest: {
         name: 'CCRN Practice Quiz',
         short_name: 'CCRN Quiz',
@@ -24,3 +24,5 @@ export default defineConfig({
     })
   ],
 })
+
+
